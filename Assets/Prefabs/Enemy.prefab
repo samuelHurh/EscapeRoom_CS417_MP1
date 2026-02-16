@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 6353754633558617298}
   - component: {fileID: 7789498663643717455}
   - component: {fileID: 2905316584388267438}
+  - component: {fileID: 3262530943918541525}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -356,3 +357,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   goal: {fileID: 0}
+--- !u!114 &3262530943918541525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7365081161553966024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6987aa2f422ff240baaba0c30481e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOnShot

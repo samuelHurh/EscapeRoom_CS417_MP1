@@ -15,7 +15,7 @@ public class FireControl : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currAmmoCount = 0;
+        currAmmoCount = 100;
         canFire = true;
         ammoCountDisplayer.text = currAmmoCount.ToString();
     }
@@ -47,7 +47,7 @@ public class FireControl : MonoBehaviour
         }
         GameObject SpawnedBullet = Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation);
         Destroy(SpawnedBullet, 1f);
-        SpawnedBullet.GetComponent<Rigidbody>().AddForce(bulletSpawner.forward * -1 * bulletForce);
+        SpawnedBullet.GetComponent<Rigidbody>().AddForce(bulletSpawner.right * -1 * bulletForce);
         currAmmoCount--;
         ammoCountDisplayer.text = currAmmoCount.ToString();
 
