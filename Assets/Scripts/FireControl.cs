@@ -1,5 +1,8 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Attachment;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class FireControl : MonoBehaviour
 {
@@ -9,6 +12,9 @@ public class FireControl : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletForce;
     [SerializeField] private TextMeshPro ammoCountDisplayer;
+    [SerializeField] private Rigidbody myRB;
+
+    private bool isLeftPrimaryGrab;
 
     private bool canFire;
     
@@ -23,7 +29,12 @@ public class FireControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    public void SetHandRigidBody(Rigidbody rb, bool isLeft)
+    {
+        // myRB = rb;
+        // isLeftPrimaryGrab = isLeft;
     }
 
     public void IncrementAmmoCount()
@@ -37,7 +48,7 @@ public class FireControl : MonoBehaviour
         canFire = true;
     }
 
-    public void Fire()
+    public void Fire(ActivateEventArgs args)
     {
         canFire = false;
         if (currAmmoCount <= 0)
@@ -45,8 +56,10 @@ public class FireControl : MonoBehaviour
             Debug.Log("out of ammo");
             return;
         }
+
         GameObject SpawnedBullet = Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation);
         Destroy(SpawnedBullet, 1f);
+        myRB.AddForce(this.gameObject.transform.right * 1000f);
         SpawnedBullet.GetComponent<Rigidbody>().AddForce(bulletSpawner.right * -1 * bulletForce);
         currAmmoCount--;
         ammoCountDisplayer.text = currAmmoCount.ToString();
