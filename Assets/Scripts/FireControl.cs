@@ -33,8 +33,8 @@ public class FireControl : MonoBehaviour
 
     public void SetHandRigidBody(Rigidbody rb, bool isLeft)
     {
-        // myRB = rb;
-        // isLeftPrimaryGrab = isLeft;
+        myRB = rb;
+        isLeftPrimaryGrab = isLeft;
     }
 
     public void IncrementAmmoCount()
@@ -48,7 +48,7 @@ public class FireControl : MonoBehaviour
         canFire = true;
     }
 
-    public void Fire(ActivateEventArgs args)
+    public void Fire()
     {
         canFire = false;
         if (currAmmoCount <= 0)
@@ -58,7 +58,7 @@ public class FireControl : MonoBehaviour
         }
 
         GameObject SpawnedBullet = Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation);
-        Destroy(SpawnedBullet, 1f);
+        Destroy(SpawnedBullet, 0.5f);
         myRB.AddForce(this.gameObject.transform.right * 1000f);
         SpawnedBullet.GetComponent<Rigidbody>().AddForce(bulletSpawner.right * -1 * bulletForce);
         currAmmoCount--;
