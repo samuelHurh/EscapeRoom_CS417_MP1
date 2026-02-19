@@ -67,5 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "MP1_EscapeRoom.slnx"
+    "MP1_EscapeRoom.slnx=======dotnet.defaultSolution": "EscapeRoom_CS417_MP1.slnx>>>>>>>Stashedchanges",
+    "dotnet.defaultSolution": "EscapeRoom_CS417_MP1.slnx"
 }
