@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class EndGame : MonoBehaviour
+public class DestroyBarrier : MonoBehaviour
 {
+    public List<GameObject> items = new List<GameObject>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,8 +16,8 @@ public class EndGame : MonoBehaviour
         
     }
 
-    public void EndTheGame()
+    public void BlowUp()
     {
-        SceneManager.LoadScene("You Win");
+        
     }
 }

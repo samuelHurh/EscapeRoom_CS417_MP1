@@ -19,4 +19,9 @@ public class GameStarter : MonoBehaviour
     {
         SceneManager.LoadScene("Sam_Scene");
     }
+    
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
 }

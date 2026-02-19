@@ -13,6 +13,8 @@ public class FireControl : MonoBehaviour
     [SerializeField] private float bulletForce;
     [SerializeField] private TextMeshPro ammoCountDisplayer;
     [SerializeField] private Rigidbody myRB;
+    public AudioSource reloadAudio;
+    public AudioSource shootAudio;
 
     private bool isLeftPrimaryGrab;
 
@@ -21,7 +23,7 @@ public class FireControl : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currAmmoCount = 100;
+        currAmmoCount = 0;
         canFire = true;
         ammoCountDisplayer.text = currAmmoCount.ToString();
     }
@@ -41,6 +43,7 @@ public class FireControl : MonoBehaviour
     {
         currAmmoCount += amt;
         ammoCountDisplayer.text = currAmmoCount.ToString();
+        AudioSource.PlayClipAtPoint(reloadAudio.clip, transform.position);
     }
 
     public void EnableFire()
@@ -63,6 +66,7 @@ public class FireControl : MonoBehaviour
         SpawnedBullet.GetComponent<Rigidbody>().AddForce(bulletSpawner.right * -1 * bulletForce);
         currAmmoCount--;
         ammoCountDisplayer.text = currAmmoCount.ToString();
+        AudioSource.PlayClipAtPoint(shootAudio.clip, transform.position);
 
     }
 }

@@ -7,6 +7,7 @@ public class BreakSystem : MonoBehaviour
     public List<GameObject> firstHit = new List<GameObject>();
     public List<GameObject> secondHit = new List<GameObject>();
     public List<GameObject> thirdHit = new List<GameObject>();
+    public AudioSource breakAudio;
 
     private int hitCount;
 
@@ -29,6 +30,7 @@ public class BreakSystem : MonoBehaviour
     {
         if (other.gameObject.tag == "axe" && canHit)
         {
+            AudioSource.PlayClipAtPoint(breakAudio.clip, transform.position);
             canHit = false;
             hitCount += 1;
             if (hitCount == 1)

@@ -1,8 +1,8 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class EndGame : MonoBehaviour
+public class CallExplode : MonoBehaviour
 {
+    public ExplosionManager emRef;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,8 +15,8 @@ public class EndGame : MonoBehaviour
         
     }
 
-    public void EndTheGame()
+    public void CallExplosion()
     {
-        SceneManager.LoadScene("You Win");
+        emRef.TryExplode();
     }
 }

@@ -18,7 +18,7 @@ public class DestroyOnShot : MonoBehaviour
         Debug.Log("Triggered by: " + collision.gameObject.tag);
         if (collision.gameObject.tag == "bullet")
         {
-            Destroy(gameObject);
+            Destroy(this.transform.gameObject);
         }
     }
 }
