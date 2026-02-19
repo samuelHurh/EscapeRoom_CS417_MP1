@@ -37,9 +37,9 @@ public class FireControl : MonoBehaviour
         isLeftPrimaryGrab = isLeft;
     }
 
-    public void IncrementAmmoCount()
+    public void AddAmmo(int amt)
     {
-        currAmmoCount += 1;
+        currAmmoCount += amt;
         ammoCountDisplayer.text = currAmmoCount.ToString();
     }
 
