@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 3
   tags:
   - bullet
-  - shell
   - shellbox
   - axe
   layers:
@@ -15,10 +14,10 @@ TagManager:
   - 
   - Water
   - UI
-  - IgnoreGun
-  - Gun
-  - ConstrainedMovable
-  - MovableHost
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
