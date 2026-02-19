@@ -6,13 +6,27 @@ public class EnableHinge : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // myHinge.enabled = false;
-        // myHinge.enabled = false;
+        Lock();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Lock()
     {
-        
+        float current = myHinge.angle;
+
+        JointLimits limits = myHinge.limits;
+        limits.min = current;
+        limits.max = current;
+
+        myHinge.limits = limits;
+        myHinge.useLimits = true;
     }
+    public void Unlock()
+    {
+        JointLimits limits = myHinge.limits;
+        limits.min = 135f;   // your door range
+        limits.max = 0f;
+
+        myHinge.limits = limits;
+    }
+
 }
